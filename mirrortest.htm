@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>测试你的镜像站的速度</title>
+</head>
+<body>
+<div align="center"><center>
+<table cellPadding="0" cellSpacing="0" width="301">
+<TBODY>
+  <tr>
+    <td align="center" width="299"><p style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px"><font
+    face="隶书" size="6" style="FONT-SIZE: 12pt" color="#FF0000">
+    <strong style="font-weight: 400">测试镜像站的连接速度</strong></font></p>
+    <p align="center" style="MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px">　</td>
+  </tr>
+</TBODY>
+</table>
+</center></div><script>
+tim=1
+setInterval("tim++",100)
+b=1
+var autourl=new Array()
+autourl[1]="www.chinaz.com"
+autourl[2]="www.cnzz.com"
+autourl[3]="www.163.com"
+autourl[4]="www.263.net"
+autourl[5]="www.8-du.net"
+function butt(){
+document.write("<form name=autof>")
+for(var i=1;i<autourl.length;i++)document.write("<input type=text name=txt"+i+" size=10 value=测试中……> =》<input type=text name=url"+i+" size=40> =》<input type=button value=GO onclick=window.open(this.form.url"+i+".value)><br>")
+document.write("<input type=submit value=刷新></form>")
+}
+butt()
+function auto(url){
+document.forms[0]["url"+b].value=url
+if(tim>200)
+{document.forms[0]["txt"+b].value="链接超时"}
+else
+{document.forms[0]["txt"+b].value="时间"+tim/10+"秒"}
+b++
+}
+function run(){for(var i=1;i<autourl.length;i++)document.write("<img src=http://"+autourl[i]+"/"+Math.random()+" width=1 height=1 onerror=auto('http://"+autourl[i]+"')>")}
+run()</script>
+<table border="0" width="100%">
+  <tr>
+    <td width="50%"><span style="font-size: 9pt">   经常在网页上见到所谓的连接速度多少秒,是不是觉得很高深,其实并不难,把本特效的一段代码粘贴到网页的相关位置,就轻松实现了这种效果,给网页更增添几分专业色彩.</span></td>
+  
+  </tr>
+</table>
+</body>
+</html>
