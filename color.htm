@@ -1,0 +1,19 @@
+﻿<div id="test"></div>
+<script type="text/javascript" charset="utf-8">
+function hsb2rgb(hue, sat, bright) { 
+  var r, g, b, max = bright*255, min = max*(1-sat), deg = 360*hue; 
+  if(deg < 60) g = min + (deg)*(max-min)/60, r = max, b = min; 
+  else if(deg < 120) r = max - (deg-60)*(max-min)/60, g = max, b = min; 
+  else if(deg < 180) b = min + (deg-120)*(max-min)/60, g = max, r = min; 
+  else if(deg < 240) g = max - (deg-180)*(max-min)/60, b = max, r = min; 
+  else if(deg < 300) r = min + (deg-240)*(max-min)/60, b = max, g = min; 
+  else b = max - (deg-300)*(max-min)/60, r = max, g = min; 
+  r=Math.floor(r);
+  g=Math.floor(g);
+  b=Math.floor(b);
+  document.bgColor='#'+r.toString(16)+g.toString(16)+b.toString(16);
+  return 'rgb('+ r+','+g+','+b+')'; 
+} 
+var n=Math.random();
+document.getElementById("test").innerHTML=n+"<br />"+hsb2rgb(n,1,1);
+</script>
